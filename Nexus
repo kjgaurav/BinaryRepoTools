@@ -1,0 +1,22 @@
+ Nexus Details: https://docs.google.com/document/d/1t5DKGhEE6Lp9V2eZh0O7WpAJyMNwHp0XMorIREbEZRg/edit?usp=sharing
+ 
+Nexus Installation
+
+https://help.sonatype.com/repomanager2/download#Download-NexusRepositoryManager2OSS
+
+$ wget https://download.sonatype.com/nexus/oss/nexus-latest-bundle.tar.gz
+$ tar xvf nexus-latest-bundle.tar.gz
+$ cd nexus-2.14.13-01/bin
+$ ./nexus start
+Starting Nexus OSS...
+Started Nexus OSS.
+$ netstat -npl | grep 8081
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+tcp        0      0 0.0.0.0:8081            0.0.0.0:*               LISTEN      8036/java
+$ ps -ef | grep nexus
+rsa-key+  8034     1  0 14:03 ?        00:00:00 /home/rsa-key-20190610/nexus-2.14.13-01/bin/../bin/jsw/linux-x86-64/wrapper /home/rsa-key-20190610/nexus-2.14.13-01/bin/../bin/jsw/conf/wrapper.conf wrapper.syslog.ident=nexus wrapper.pidfile=/home/rsa-key-20190610/nexus-2.14.13-01/bin/../bin/jsw/linux-x86-64/nexus.pid wrapper.daemonize=TRUE
+rsa-key+  8036  8034 97 14:03 ?        00:00:34 java -Djava.io.tmpdir=./tmp -Djava.net.preferIPv4Stack=true -Dcom.sun.jndi.ldap.connect.pool.protocol=plain ssl -Xms256m -Xmx768m -Djava.library.path=bin/jsw/lib -classpath bin/jsw/lib/wrapper-3.2.3.jar:./lib/metrics-jetty-2.2.0.jar:./lib/jetty-server-8.1.16.v20140903.jar:./lib/jul-to-slf4j-1.7.25.jar:./lib/nexus-bootstrap-2.14.13-01.jar:./lib/logback-access-1.2.3.jar:./lib/plexus-interpolation-1.16.jar:./lib/jetty-io-8.1.16.v20140903.jar:./lib/javax.servlet-3.0.0.v201112011016.jar:./lib/jetty-client-8.1.16.v20140903.jar:./lib/jetty-deploy-8.1.16.v20140903.jar:./lib/jetty-webapp-8.1.16.v20140903.jar:./lib/jetty-servlet-8.1.16.v20140903.jar:./lib/jetty-continuation-8.1.16.v20140903.jar:./lib/metrics-core-2.2.0.jar:./lib/jetty-jmx-8.1.16.v20140903.jar:./lib/jetty-http-8.1.16.v20140903.jar:./lib/jetty-rewrite-8.1.16.v20140903.jar:./lib/jetty-util-8.1.16.v20140903.jar:./lib/logback-core-1.2.3.jar:./lib/jetty-xml-8.1.16.v20140903.jar:./lib/logback-classic-1.2.3.jar:./lib/jetty-security-8.1.16.v20140903.jar:./lib/metrics-logback-2.2.0.jar:./lib/slf4j-api-1.7.25.jar:./conf/ -Dwrapper.key=lC2N5PIHBIbKnHff -Dwrapper.port=32001 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=8034 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.service=TRUE -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1 org.sonatype.nexus.bootstrap.jsw.JswLauncher ./conf/jetty.xml ./conf/jetty-requestlog.xml
+rsa-key+  8105  3287  0 14:04 pts/0    00:00:00 grep --color=auto nexus
+
+ 
