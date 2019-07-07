@@ -57,3 +57,27 @@ Change the pom.xml file to get # mvn deploy working
 
 
 
+Publish Artifacts
+
+To publish the artifacts you can use:
+mvn deploy
+
+You will get unauthorized error, fix the error by adding settings.xml file in local repo
+
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy (default-deploy) on project WebApp: Failed to deploy artifacts: Could not transfer artifact com.digi.proj2:WebApp:war:1.0-20190707.161255-1 from/to snapshotRepo (http://35.200.208.109:8081/nexus/content/repositories/snapshotRepo): Failed to transfer file: http://35.200.208.109:8081/nexus/content/repositories/snapshotRepo/com/digi/proj2/WebApp/1.0-SNAPSHOT/WebApp-1.0-20190707.161255-1.war. Return code is: 401, ReasonPhrase: Unauthorized. -> [Help 1]
+
+cd /home/rsa-key-20190610/.m2
+$ vi settings.xml
+   <servers>
+       <server>
+           <id>releaseRepo</id>
+           <username>admin</username>
+           <password>admin123</password>
+       </server>
+       <server>
+           <id>snapshotRepo</id>
+           <username>admin</username>
+           <password>admin123</password>
+       </server>
+   </servers>
+
