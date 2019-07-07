@@ -25,4 +25,35 @@ http://serveripaddress:8081/nexus
 The repository manager installation includes an administrative user with full access. Its username is admin and the password is admin123
 
 
+Creating Repositories
+
+Snapshots
+Login to the nexus server
+Click Repositories → Add → Hosted Repo → Repo Id: snapshotRepo → Repo Name: snapshotRepo → Repo Policy: Snapshot → Deployment Policy: Allow Redeploy → Save
+
+Releases
+Click Repositories → Add → Hosted Repo → Repo Id: releaseRepo → Repo Name: releaseRepo → Repo Policy: Release → Deployment Policy: Disable Redeploy → Save
+To publish the artifacts you can use:
+mvn deploy
+You will get an error, fix the error by adding <distributionManagement> element in pom
+
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy (default-deploy) on project WebApp: Deployment failed: repository element was not specified in the POM inside distributionManagement element or in -DaltDeploymentRepository=id::layout::url parameter -> [Help 1]
+
+Change the pom.xml file to get # mvn deploy working
+
+</dependencies>
+
+<distributionManagement>
+  <repository>
+    <id>releaseRepo</id>
+    <url>http://35.200.208.109:8081/nexus/content/repositories/releaseRepo</url>
+  </repository>
+  <snapshotRepository>
+    <id>snapshotRepo</id>
+    <url>http://35.200.208.109:8081/nexus/content/repositories/snapshotRepo</url>
+  </snapshotRepository>
+</distributionManagement>
+
+
+
 
