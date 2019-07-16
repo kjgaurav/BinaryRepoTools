@@ -24,6 +24,8 @@ Once the repository manager is started, By default port 8081 is used. To access 
 http://serveripaddress:8081/nexus
 
 The repository manager installation includes an administrative user with full access. Its username is admin and the password is admin123
+For Nexus 3
+$ cat /home/rsa-key-20190610/sonatype-work/nexus3/admin.password
 
 
 Creating Repositories
