@@ -3,6 +3,9 @@ Nexus Details: https://docs.google.com/document/d/1t5DKGhEE6Lp9V2eZh0O7WpAJyMNwH
 Nexus Installation
 
 https://help.sonatype.com/repomanager2/download#Download-NexusRepositoryManager2OSS
+old version
+$ wget https://download.sonatype.com/nexus/oss/nexus-latest-bundle.tar.gz
+$ tar xvf nexus-latest-bundle.tar.gz
 
 $ wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
 $ tar xvf latest-unix.tar.gz
